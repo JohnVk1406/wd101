@@ -37,6 +37,17 @@ const saveUserform = (event) => {
     const password = document.getElementById("password").value;
     const dob = document.getElementById("dob").value;
     const accptterms = document.getElementById("terms").checked;
+    //Validating age and email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+    const age = today.getFullYear() - new Date(dob).getFullYear();
+    if (age < 18) {
+        alert("You must be at least 18 years old to register.");
+        return; 
+    }
     const entry = {
         name,
         email,
