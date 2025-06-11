@@ -48,6 +48,10 @@ const saveUserform = (event) => {
         alert("You must be at least 18 years old to register.");
         return; 
     }
+    if (age > 55) {
+        alert("You must be under 55 years old to register.");
+        return;
+    }
     const entry = {
         name,
         email,
